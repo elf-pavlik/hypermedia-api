@@ -1,36 +1,37 @@
 {
   "@context": [
     "http://asjsonld.mybluemix.net",
-    { "ex": "http://example.net/ns#" }
+    { "schema": "http://schema.org/" }
   ],
-  "@type": "ex:Movie",
-  "@id": "https://vimeo.com/110256895",
-  "displayName": "Web standards for the future",
-  "potentialAction": {
-    "verb": "ex:review",
-    "using": {
-      "@type": "HttpRequest",
-      "method": "POST",
-      "expects": {
-        "@type": "HtmlForm",
-        "parameter": [
-          {
-            "name": "rating",
-            "maxInclusive": 5,
-            "minInclusive": 1,
-            "valueType": "unsignedInt",
-            "required": true
-          }, {
-            "name": "body",
-            "valueType": "string",
-            "required": true
-          }
-        ]
-      },
-      "potentialResult": {
-        "@type": "Payload",
-        "mediaType": "application/activity+json"
+  "@type": "schema:Photograph",
+  "@id": "https://www.w3.org/wiki/File:20141028_180046.jpg",
+  "schema:description": "Social WG participants after TPAC 2014",
+  "potentialAction": [
+    {
+      "verb": "as:comment",
+      "using": {
+        "@type": "HttpRequest",
+        "method": "POST",
+        "expects": {
+          "@type": "HtmlForm",
+          "parameter": [
+            {
+              "name": "schema:description",
+              "required": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "verb": "as:like",
+      "using": {
+        "@type": "HttpRequest",
+        "method": "POST",
+        "expects": {
+          "@type": "UrlTemplate"
+        }
       }
     }
-  }
+  ]
 }

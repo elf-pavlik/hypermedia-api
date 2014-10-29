@@ -1,0 +1,27 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Movie",
+  "@id": "https://vimeo.com/110256895",
+  "name": "Web standards for the future",
+  "potentialAction": {
+    "@type": "ReviewAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://api.example.com/review",
+      "encodingType": "application/ld+json",
+      "contentType": "application/ld+json"
+    },
+    "object" : {
+      "@type": "Movie",
+      "url-input": "required"
+    },
+    "result": {
+      "@type": "Review",
+      "url-output": "required",
+      "reviewBody-input": "required",
+      "reviewRating": {
+        "ratingValue-input": "required"
+      }
+    }
+  }
+}

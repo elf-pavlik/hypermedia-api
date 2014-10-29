@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "http://asjsonld.mybluemix.net",
+    { "ex": "http://example.net/ns#" }
+  ],
+  "@type": "ex:Movie",
+  "@id": "https://vimeo.com/110256895",
+  "displayName": "Web standards for the future",
+  "potentialAction": {
+    "verb": "ex:review",
+    "using": {
+      "@type": "HttpRequest",
+      "method": "POST",
+      "expects": {
+        "@type": "HtmlForm",
+        "parameter": [
+          {
+            "name": "rating",
+            "maxInclusive": 5,
+            "minInclusive": 1,
+            "valueType": "unsignedInt",
+            "required": true
+          }, {
+            "name": "body",
+            "valueType": "string",
+            "required": true
+          }
+        ]
+      },
+      "potentialResult": {
+        "@type": "Payload",
+        "mediaType": "application/activity+json"
+      }
+    }
+  }
+}
